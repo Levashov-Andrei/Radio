@@ -5,9 +5,34 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
+    Radio radio = new Radio();
+
+    @Test
+    public void installRadio() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(9);
+
+
+        int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void installStation9() {
+        radio.setCurrentStation(3);
+
+        radio.setCurrentStation(9);
+
+        int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
     @Test
     public void ShouldNextForward8() {
-        Radio radio = new Radio();
         radio.setCurrentStation(7);
 
         radio.next();
@@ -20,7 +45,6 @@ public class RadioTest {
 
     @Test
     public void ShouldNextForward0() {
-        Radio radio = new Radio();
         radio.setCurrentStation(9);
 
         radio.next();
@@ -33,7 +57,6 @@ public class RadioTest {
 
     @Test
     public void ShouldNextForward1() {
-        Radio radio = new Radio();
         radio.setCurrentStation(0);
 
         radio.next();
@@ -46,7 +69,6 @@ public class RadioTest {
 
     @Test
     public void ShouldPrevBack9() {
-        Radio radio = new Radio();
         radio.setCurrentStation(0);
 
         radio.prev();
@@ -59,7 +81,6 @@ public class RadioTest {
 
     @Test
     public void ShouldPrevBack8() {
-        Radio radio = new Radio();
         radio.setCurrentStation(9);
 
         radio.prev();
@@ -72,7 +93,6 @@ public class RadioTest {
 
     @Test
     public void ShouldPrevBack0() {
-        Radio radio = new Radio();
         radio.setCurrentStation(1);
 
         radio.prev();
@@ -85,7 +105,6 @@ public class RadioTest {
 
     @Test
     public void ShouldNextVolumeForward1() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(0);
 
         radio.nextVolume();
@@ -98,7 +117,6 @@ public class RadioTest {
 
     @Test
     public void ShouldNextVolumeForward3() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(2);
 
         radio.nextVolume();
@@ -111,7 +129,6 @@ public class RadioTest {
 
     @Test
     public void ShouldNextVolumeForward99() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(99);
 
         radio.nextVolume();
@@ -124,7 +141,6 @@ public class RadioTest {
 
     @Test
     public void ShouldNextVolumeForward100() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(100);
 
         radio.nextVolume();
@@ -137,7 +153,6 @@ public class RadioTest {
 
     @Test
     public void ShouldPevtVolumeBack0() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(0);
 
         radio.prevVolume();
@@ -150,7 +165,6 @@ public class RadioTest {
 
     @Test
     public void ShouldPevtVolumeBack44() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(50);
 
         radio.setCurrentVolume(45);
@@ -165,7 +179,6 @@ public class RadioTest {
 
     @Test
     public void ShouldPevtVolumeBack99() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(100);
 
 
@@ -180,8 +193,6 @@ public class RadioTest {
     @Test
 
     public void shouldsetCurrentStation() {
-        Radio radio = new Radio();
-
         radio.setCurrentStation(-1);
 
         int expected = 0;
@@ -192,7 +203,6 @@ public class RadioTest {
 
     @Test
     public void shouldsetCurrentStation0() {
-        Radio radio = new Radio();
         radio.setCurrentStation(3);
 
         radio.setCurrentStation(0);
@@ -205,8 +215,6 @@ public class RadioTest {
 
     @Test
     public void shouldsetCurrentStation1() {
-        Radio radio = new Radio();
-
         radio.setCurrentStation(1);
 
         int expected = 1;
@@ -217,8 +225,6 @@ public class RadioTest {
 
     @Test
     public void shouldsetCurrentStation5() {
-        Radio radio = new Radio();
-
         radio.setCurrentStation(5);
 
         int expected = 5;
@@ -230,8 +236,6 @@ public class RadioTest {
 
     @Test
     public void shouldsetCurrentStation8() {
-        Radio radio = new Radio();
-
         radio.setCurrentStation(8);
 
         int expected = 8;
@@ -242,8 +246,6 @@ public class RadioTest {
 
     @Test
     public void shouldsetCurrentStation9() {
-        Radio radio = new Radio();
-
         radio.setCurrentStation(9);
 
         int expected = 9;
@@ -254,8 +256,6 @@ public class RadioTest {
 
     @Test
     public void shouldsetCurrentStation10() {
-        Radio radio = new Radio();
-
         radio.setCurrentStation(10);
 
         int expected = 0;
@@ -266,8 +266,6 @@ public class RadioTest {
 
     @Test
     public void upperLimitValueVolume() {
-        Radio radio = new Radio();
-
         radio.setCurrentVolume(100);
 
         int expected = 100;
@@ -278,8 +276,6 @@ public class RadioTest {
 
     @Test
     public void upperLimitValueVolume99() {
-        Radio radio = new Radio();
-
         radio.setCurrentVolume(99);
 
         int expected = 99;
@@ -290,7 +286,6 @@ public class RadioTest {
 
     @Test
     public void lowerlimitValueVolume() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(0);
 
         int expected = 0;
@@ -301,7 +296,6 @@ public class RadioTest {
 
     @Test
     public void negativeNalueVolume() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(-1);
 
         int expected = 0;
@@ -312,7 +306,6 @@ public class RadioTest {
 
     @Test
     public void averageValueVolume() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(45);
 
         int expected = 45;
@@ -323,7 +316,6 @@ public class RadioTest {
 
     @Test
     public void aboveTheMaximumVolume() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(101);
 
         int expected = 0;
