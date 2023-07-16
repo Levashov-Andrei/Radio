@@ -1,69 +1,55 @@
 package ru.Netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int maxStation = 9;
+    private int minStation = 0;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+
+
+    public Radio(int stationsCount) {
+        maxStation = stationsCount - 1;
+    }
 
     public void next() {
-        if (currentStation != 9) {
+        if (currentStation != maxStation) {
             currentStation++;
         } else {
-            currentStation = 0;
+            currentStation = minStation;
         }
     }
 
     public void prev() {
-        if (currentStation != 0) {
+        if (currentStation != minStation) {
             currentStation--;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
     }
 
     public void nextVolume() {
-        if (currentVolume != 100) {
+        if (currentVolume != maxVolume) {
             currentVolume++;
         } else {
-            currentVolume = 100;
+            currentVolume = maxVolume;
         }
     }
 
     public void prevVolume() {
-        if (currentVolume != 0) {
+        if (currentVolume != minVolume) {
             currentVolume--;
         } else {
-            currentVolume = 0;
+            currentVolume = minVolume;
         }
     }
-
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
-            return;
-        }
-        if (currentStation > 9) {
-            return;
-        }
-        this.currentStation = currentStation;
-    }
-
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0) {
-            return;
-        }
-        if (currentVolume > 100) {
-            return;
-        }
-        this.currentVolume = currentVolume;
-    }
-
-
 }
+
