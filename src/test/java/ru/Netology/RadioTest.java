@@ -8,7 +8,7 @@ public class RadioTest {
     Radio radio = new Radio();
 
     @Test
-    public void installRadio() {
+    public void installRadioStation() {
         Radio radio = new Radio(10);
         radio.setCurrentStation(9);
 
@@ -298,6 +298,7 @@ public class RadioTest {
     public void negativeNalueVolume() {
         radio.setCurrentVolume(-1);
 
+
         int expected = 0;
         int actual = radio.getCurrentVolume();
 
@@ -307,21 +308,24 @@ public class RadioTest {
     @Test
     public void averageValueVolume() {
         radio.setCurrentVolume(45);
+        
+        radio.setCurrentVolume(23);
 
-        int expected = 45;
+        int expected = 23;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void aboveTheMaximumVolume() {
+    public void aboveTheMaximumVolum() {
+        radio.setCurrentVolume(100);
+
         radio.setCurrentVolume(101);
 
-        int expected = 0;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
-
 }
