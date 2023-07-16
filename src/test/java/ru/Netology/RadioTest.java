@@ -181,7 +181,6 @@ public class RadioTest {
     public void ShouldPevtVolumeBack99() {
         radio.setCurrentVolume(100);
 
-
         radio.prevVolume();
 
         int expected = 99;
@@ -308,7 +307,7 @@ public class RadioTest {
     @Test
     public void averageValueVolume() {
         radio.setCurrentVolume(45);
-        
+
         radio.setCurrentVolume(23);
 
         int expected = 23;

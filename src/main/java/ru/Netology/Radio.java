@@ -16,7 +16,7 @@ public class Radio {
     private int minVolume = 0;
 
 
-    public Radio (int stationsCount ){
+    public Radio(int stationsCount) {
         maxStation = stationsCount - 1;
 
     }
@@ -40,7 +40,9 @@ public class Radio {
     public void nextVolume() {
         if (currentVolume != maxVolume) {
             currentVolume++;
-        } else {currentVolume = maxVolume;}
+        } else {
+            currentVolume = maxVolume;
+        }
     }
 
     public void prevVolume() {
